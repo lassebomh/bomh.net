@@ -11,6 +11,25 @@
 	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
 }
 
+#githublogoimg {
+	width: 25px;
+	display: inline;
+    vertical-align: top;
+    clear: both;
+    padding: 2.5px;
+    padding-right: 3px;
+}
+
+#githubtextimg {
+	width: 80px;
+	display: inline;
+    vertical-align: top;
+    clear: both;
+    padding: 0px;
+    padding-right: 84px;
+    padding-top: 0px;
+}
+
 #goodreadsdiv {
 	background-color: HSL(42, 31.3%, 93.7%);
 	padding: 10px;
@@ -22,24 +41,6 @@
 	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
 }
 
-#githublogoimg {
-	width: 25px;
-	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 2.5px;
-    padding-right: 0px;
-}
-
-#githubtextimg {
-	width: 80px;
-	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 0px;
-    padding-right: 10px;
-    padding-top: -7px;
-}
 
 #goodreadslogoimg {
 	width: 122px;
@@ -47,5 +48,27 @@
     vertical-align: top;
     clear: both;
     padding: 2.5px;
-    padding-right: 10px;
+    padding-right: 74px;
+}
+
+
+#emaildiv {
+	background-color: hsl(210.6, 100%, 95%);;
+	padding: 10px;
+	width: 300px;
+	height: 30px;
+	border: 1px solid hsl(210.6, 40%, 48%);;
+	border-radius: 4px;
+	display: inline-block;
+	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
+}
+
+#emailimg {
+	width: 30px;
+	display: inline;
+    vertical-align: top;
+    clear: both;
+    padding: 2.5px;
+    padding-right: 4px;
+    padding-top: 4px;
 }
