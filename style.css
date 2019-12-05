@@ -8,7 +8,7 @@
 	border: 1px solid #000;
 	border-radius: 4px;
 	display: inline-block;
-	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
+	box-shadow: 6px 8px 14px -8px rgba(0,0,0,0.3);
 }
 
 #githublogoimg {
@@ -38,7 +38,7 @@
 	border: 1px solid HSL(42, 31.3%, 63.7%);
 	border-radius: 4px;
 	display: inline-block;
-	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
+	box-shadow: 6px 8px 14px -8px rgba(0,0,0,0.3);
 }
 
 
@@ -60,7 +60,7 @@
 	border: 1px solid hsl(210.6, 40%, 48%);;
 	border-radius: 4px;
 	display: inline-block;
-	box-shadow: 6px 6px 14px -8px rgba(0,0,0,0.75);
+	box-shadow: 6px 8px 14px -8px rgba(0,0,0,0.3);
 }
 
 #emailimg {
