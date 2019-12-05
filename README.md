@@ -1,1 +1,1 @@
-# This is my website on www.bomh.net
+This is the code for my website www.bomh.net
