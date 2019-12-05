@@ -1,8 +1,15 @@
 
 .lbox {
-	border: 0.01px solid #bbb;
-	border-radius: 10px;
+	border: 0.01px solid #999;
+	border-radius: 20px;
 	padding: 20px;
 	width: 20%;
-	box-shadow: 2px 5px 8px #bbb;
+	box-shadow: 2px 5px 12px #ddd;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
 }
