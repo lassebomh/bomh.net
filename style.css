@@ -1,0 +1,8 @@
+
+.lbox {
+	border: 0.01px solid #bbb;
+	border-radius: 10px;
+	padding: 20px;
+	width: 20%;
+	box-shadow: 2px 5px 8px #bbb;
+}
