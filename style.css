@@ -14,20 +14,20 @@
 #githublogoimg {
 	width: 25px;
 	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 2.5px;
-    padding-right: 3px;
+	vertical-align: top;
+	clear: both;
+	padding: 2.5px;
+	padding-right: 3px;
 }
 
 #githubtextimg {
 	width: 80px;
 	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 0px;
-    padding-right: 84px;
-    padding-top: 0px;
+	vertical-align: top;
+	clear: both;
+	padding: 0px;
+	padding-right: 84px;
+	padding-top: 0px;
 }
 
 #goodreadsdiv {
@@ -45,10 +45,10 @@
 #goodreadslogoimg {
 	width: 122px;
 	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 2.5px;
-    padding-right: 74px;
+	vertical-align: top;
+	clear: both;
+	padding: 2.5px;
+	padding-right: 74px;
 }
 
 
@@ -66,9 +66,19 @@
 #emailimg {
 	width: 30px;
 	display: inline;
-    vertical-align: top;
-    clear: both;
-    padding: 2.5px;
-    padding-right: 4px;
-    padding-top: 4px;
+	vertical-align: top;
+	clear: both;
+	padding: 2.5px;
+	padding-right: 4px;
+	padding-top: 4px;
+}
+
+.ball {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
 }
