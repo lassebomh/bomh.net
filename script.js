@@ -18,9 +18,12 @@ function runFunction() {
 		vbx += 1000 * -(4*(bx-gx))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
 		vby += 1000 * -(4*(by-gy))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
 	}
+
 	bx += vbx;
 	by += vby;
+	
 	console.log(by-gy, by-gy);
+	
 	b.style.left = bx.toString()+"px";
 	b.style.top = by.toString()+"px";
 }
