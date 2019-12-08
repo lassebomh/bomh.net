@@ -2,18 +2,22 @@
 
 var b = document.getElementById("ball0");
 
-var bx = 400;
-var by = 400;
+var bx = 800;
+var by = 500;
 
-var vbx = 0;
-var vby = 2;
+var vbx = 7;
+var vby = 0;
 
-var gx = 500;
-var gy = 500;
+var gx = 800;
+var gy = 400;
+
+// -(4*gmass*(bx-gx))/((Math.pow((bx-gx), 2)+Math.pow((by-gy)**2), (3/2)))
 
 function runFunction() {
-	vby += (gy-by)/10000;
-	vbx += (gx-bx)/10000;
+	if (gx != bx && gy != by) {
+		vbx += 1000 * -(4*(bx-gx))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
+		vby += 1000 * -(4*(by-gy))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
+	}
 	bx += vbx;
 	by += vby;
 	console.log(by-gy, by-gy);
