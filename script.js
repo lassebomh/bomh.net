@@ -1,6 +1,6 @@
 
 
-var b = document.getElementById("ball0");
+var b = document.getElementById("ball-1");
 
 var bx = 800;
 var by = 500;
@@ -13,21 +13,25 @@ var gy = 400;
 
 // -(4*gmass*(bx-gx))/((Math.pow((bx-gx), 2)+Math.pow((by-gy)**2), (3/2)))
 
-
 var ObjectsList = [];
 
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 2; i++) {
 	var obj = document.createElement("img");
-	ObjectsList.push(obj);
 	obj.setAttribute("src", "images/ball.png");
-	obj.setAttribute("id", "ball"+i.toString())
-	obj.className = "ball"
+	obj.setAttribute("id", "ball"+i.toString());
+	obj.className = "ball";
+	obj.style.top = "400px";
+	obj.style.left = "400px";
 	document.body.appendChild(obj);
+	ObjectsList.push(obj);
 }
 
-console.log(ObjectsList);
-
 function runFunction() {
+
+	for (var i = 0; i < ObjectsList.length; i++){
+		console.log(ObjectsList[i].style.left);
+	}
+
 	if (gx != bx && gy != by) {
 		vbx += 1000 * -(4*(bx-gx))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
 		vby += 1000 * -(4*(by-gy))/(Math.pow(Math.pow(bx-gx, 2)+Math.pow(by-gy, 2), (3/2)))
