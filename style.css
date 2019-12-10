@@ -73,11 +73,29 @@
 	padding-top: 4px;
 }
 
-.ball {
-	width: 35px;
-	height: 35px;
+.phys {
 	position: absolute;
 	margin-top: auto;
 	margin-left: auto;
 	display: block;
+}
+
+#earth {
+	width: 45px;
+	height: 45px;
+}
+
+#sun {
+	width: 45px;
+	height: 45px;
+}
+
+#mars {
+	width: 45px;
+	height: 45px;
+}
+
+#moon {
+	width: 45px;
+	height: 45px;
 }
