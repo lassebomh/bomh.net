@@ -6,33 +6,43 @@ var moon = document.getElementById("moon");
 
 var objs = [earth, sun, mars, moon];
 
-var centerpos = [600, 400];
-var centerdist = 400;
+var centerpos = [800, 400];
+var centerdist = 200;
 
-// .mass = ;
-// .pos_x = ;
-// .pos_y = ;
-// .dx = ;
-// .dy = ;
-
-
-objs.forEach(setupPlanets);
-
-function setupPlanets(item, index) {
-	item.mass = [1, 4, 1, 1][index];
-	item.pos_x = 900+Math.random()*300-150;
-	item.pos_y = 400+Math.random()*200-100;
-	item.dx = Math.random()*4-2;
-	item.dy = Math.random()*4-2;
+function randCircPoint(d){
+	var angle = Math.random()*2*Math.PI;
+	return [centerpos[0] + Math.cos(angle)*centerdist*d, centerpos[1] + Math.sin(angle)*centerdist];
 }
 
-// 	obj.style.top = "400px";
-// 	obj.style.left = "400px";
+earth.mass = 1;
+[earth.pos_x, earth.pos_y] = randCircPoint(1);
+console.log(randCircPoint(1))
+earth.dx = 1;
+earth.dy = 1;
+
+console.log(earth.pos_x);
+
+sun.mass = 20;
+sun.pos_x = centerpos[0];
+sun.pos_y = centerpos[1];
+sun.dx = 1;
+sun.dy = 1;
+
+
+mars.mass = 0.8;
+[mars.pos_x, mars.pos_y] = randCircPoint(1.4);
+mars.dx = 1;
+mars.dy = 1;
+
+moon.mass = 0.1;
+[moon.pos_x, moon.pos_y] = randCircPoint(0.9);
+moon.dx = 1;
+moon.dy = 1;
+
 
 function tick() {
 
 	function iter_obj_0(self_obj, index) {
-		// console.log("---------");
 		function iter_obj_1(other_obj, index) {
 			
 			if (self_obj == other_obj) {
