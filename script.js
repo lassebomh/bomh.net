@@ -2,12 +2,11 @@
 var earth = document.getElementById("earth");
 var sun = document.getElementById("sun");
 var mars = document.getElementById("mars");
-var moon = document.getElementById("moon");
 
-var objs = [earth, sun, mars, moon];
+var objs = [earth, sun, mars];
 
 var centerpos = [800, 400];
-var centerdist = 200;
+var centerdist = 300;
 
 function randCircPoint(d){
 	var angle = Math.random()*2*Math.PI;
@@ -15,30 +14,20 @@ function randCircPoint(d){
 }
 
 earth.mass = 1;
-[earth.pos_x, earth.pos_y] = randCircPoint(1);
-console.log(randCircPoint(1))
-earth.dx = 1;
-earth.dy = 1;
-
-console.log(earth.pos_x);
+[earth.pos_x, earth.pos_y] = [centerpos[0], centerpos[1]+150];
+earth.dx = 1.5;
+earth.dy = 0;
 
 sun.mass = 20;
 sun.pos_x = centerpos[0];
 sun.pos_y = centerpos[1];
-sun.dx = 1;
-sun.dy = 1;
-
+sun.dx = 0.045;
+sun.dy = 0;
 
 mars.mass = 0.8;
-[mars.pos_x, mars.pos_y] = randCircPoint(1.4);
-mars.dx = 1;
-mars.dy = 1;
-
-moon.mass = 0.1;
-[moon.pos_x, moon.pos_y] = randCircPoint(0.9);
-moon.dx = 1;
-moon.dy = 1;
-
+[mars.pos_x, mars.pos_y] = [centerpos[0], centerpos[1]-300];
+mars.dx = -3;
+mars.dy = 0;
 
 function tick() {
 
