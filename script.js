@@ -5,7 +5,7 @@ var mars = document.getElementById("mars");
 
 var objs = [earth, sun, mars];
 
-var centerpos = [800, 400];
+var centerpos = [900, 420];
 var centerdist = 300;
 
 function randCircPoint(d){
