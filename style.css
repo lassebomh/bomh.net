@@ -1,0 +1,46 @@
+
+#profile-div {
+	margin: 10px;
+	padding: 10px;
+	box-shadow: 5px 5px 24px #0003;
+	border: 1px solid #000C;
+	border-radius: 2px;
+	position: absolute;
+}
+
+#profile {
+	width: 200px;
+	box-shadow: 5px 5px 24px #0003;
+	border: 1px solid #000C;
+	border-radius: 2px;
+}
+
+#profile-name {
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 50px;
+    margin: 0px;
+}
+
+.linkbox {
+	font-family: 'Josefin Sans', sans-serif;
+	margin-left: 212px;
+	margin-bottom: 11px;
+	padding: 11px;
+	width: 300px;
+	height: 36px;
+	box-shadow: 5px 5px 24px #0003;
+	border: 1px solid #000C;
+	border-radius: 2px;
+}
+
+#a {
+	border-color: #000;
+}
+
+#b {
+	border-color: #000;
+}
+
+#c {
+	border-color: #000;
+}
