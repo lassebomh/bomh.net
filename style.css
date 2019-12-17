@@ -1,35 +1,37 @@
 
 #profile-div {
-	margin: 10px;
-	padding: 10px;
-	box-shadow: 5px 5px 24px #0003;
-	border: 1px solid #000C;
+	margin: 10%;
+	margin-top: 13%;
+	padding: 15px;
+	box-shadow: 5px 5px 18px #0002;
+	border: 1px solid #0003;
 	border-radius: 2px;
 	position: absolute;
 }
 
-#profile {
-	width: 200px;
-	box-shadow: 5px 5px 24px #0003;
-	border: 1px solid #000C;
+#profile-image {
+	width: 227px;
+	box-shadow: 5px 5px 16px #0002;
+	border: 1px solid #0003;
 	border-radius: 2px;
 }
 
 #profile-name {
-    font-family: 'Sulphur Point', sans-serif;
-    font-size: 50px;
-    margin: 0px;
+	font-family: 'Sulphur Point', sans-serif;
+	font-size: 47.1px;
+	margin: 0px;
+	padding-bottom: 8px;
 }
 
 .linkbox {
 	font-family: 'Josefin Sans', sans-serif;
-	margin-left: 212px;
-	margin-bottom: 11px;
+	margin-left: 235px;
+	margin-bottom: 7px;
 	padding: 11px;
 	width: 300px;
-	height: 36px;
-	box-shadow: 5px 5px 24px #0003;
-	border: 1px solid #000C;
+	height: 28px;
+	box-shadow: 5px 5px 16px #0002;
+	border: 1px solid #0003;
 	border-radius: 2px;
 }
 
@@ -42,5 +44,9 @@
 }
 
 #c {
+	border-color: #000;
+}
+
+#d {
 	border-color: #000;
 }
