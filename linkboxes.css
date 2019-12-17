@@ -1,7 +1,9 @@
 
 #github-image {
+    padding-top: 1px;
     width: 100px;
     height: auto;
+    padding-left: 4px;
 }
 
 #github-linkbox {
@@ -11,20 +13,23 @@
 }
 
 #linkedin-image {
+    padding-top: 2px;
     width: 100px;
     height: auto;
+    padding-left: 4px;
 }
 
 #linkedin-linkbox {
 	background-color: #007BB6;
 	border-color: #005E89;
-	color: #000;
+	color: #fff;
 }
 
 #goodreads-image {
 	padding-top: 2px;
     width: 120px;
     height: auto;
+    padding-left: 4px;
 }
 
 #goodreads-linkbox {
@@ -37,10 +42,11 @@
 	padding-top: 3px;
     width: 98px;
     height: auto;
+    padding-left: 4px;
 }
 
 #email-linkbox {
-	background-color: hsl(210.6, 100%, 95%);
-	border-color: hsl(210.6, 40%, 48%);
+	background-color: hsl(210.6, 100%, 92%);
+	border-color: hsl(210.6, 40%, 65%);
 	color: #000;
 }

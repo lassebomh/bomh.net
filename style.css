@@ -1,30 +1,40 @@
 
+a {
+  text-decoration: none;
+}
+
+span {
+	position: relative;
+	top: -8px;
+}
+
 #split-background {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	background-image: url("images/skyline.jpg");
-	width: 30%;
+	width: 20%;
 	height: 100%;
-	border-right: 1px solid #000;
+	border-right: 1px solid hsl(230.7, 64%, 30%);
 	box-shadow: 9px 9px 39px #0004;
+	filter: hue-rotate(-90deg);
 }
 
 #profile-div {
 	margin: 10%;
 	margin-top: 13%;
-	padding: 15px;
+	padding: 25px;
 	box-shadow: -12px 12px 22px #0004;
-	border: 1px solid #000f;
+	border: 1px solid #000A;
 	border-radius: 3px;
 	position: absolute;
-	background-color: #fff;
+	background-color: #FFF;
 }
 
 #profile-image {
 	width: 227px;
 	box-shadow: 5px 5px 16px #0002;
-	border: 1px solid #000f;
+	border: 1px solid #000A;
 	border-radius: 3px;
 }
 
@@ -32,13 +42,14 @@
 	font-family: 'Sulphur Point', sans-serif;
 	font-size: 40px;
 	word-spacing: 0px;
-	letter-spacing: 4px;
+	letter-spacing: 1px;
 	margin: 0px;
 	padding-bottom: 8px;
 }
 
 .linkbox {
-	font-family: 'Josefin Sans', sans-serif;
+	vertical-align: top;
+	font-family: 'Ubuntu', sans-serif;
 	margin-left: 235px;
 	margin-bottom: 7px;
 	padding: 11px;
