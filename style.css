@@ -7,13 +7,14 @@
 	width: 30%;
 	height: 100%;
 	border-right: 1px solid #000;
+	box-shadow: 9px 9px 39px #0004;
 }
 
 #profile-div {
 	margin: 10%;
 	margin-top: 13%;
 	padding: 15px;
-	box-shadow: 5px 5px 18px #0002;
+	box-shadow: -12px 12px 22px #0004;
 	border: 1px solid #000f;
 	border-radius: 3px;
 	position: absolute;
@@ -23,7 +24,7 @@
 #profile-image {
 	width: 227px;
 	box-shadow: 5px 5px 16px #0002;
-	border: 1px solid #0003;
+	border: 1px solid #000f;
 	border-radius: 3px;
 }
 
@@ -48,18 +49,26 @@
 	border-radius: 3px;
 }
 
-#a {
+#github-linkbox {
+	background-color: #24292E;
 	border-color: #000;
+	color: #fff;
 }
 
-#b {
+#linkedin-linkbox {
+	background-color: #24292E;
 	border-color: #000;
+	color: #000;
 }
 
-#c {
-	border-color: #000;
+#goodreads-linkbox {
+	background-color: hsl(42, 31.3%, 93.7%);
+	border-color: hsl(42, 31.3%, 63.7%);
+	color: #000;
 }
 
-#d {
-	border-color: #000;
+#email-linkbox {
+	background-color: hsl(210.6, 100%, 95%);
+	border-color: hsl(210.6, 40%, 48%);
+	color: #000;
 }
