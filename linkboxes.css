@@ -1,0 +1,46 @@
+
+#github-image {
+    width: 100px;
+    height: auto;
+}
+
+#github-linkbox {
+	background-color: #24292E;
+	border-color: #000;
+	color: #fff;
+}
+
+#linkedin-image {
+    width: 100px;
+    height: auto;
+}
+
+#linkedin-linkbox {
+	background-color: #007BB6;
+	border-color: #005E89;
+	color: #000;
+}
+
+#goodreads-image {
+	padding-top: 2px;
+    width: 120px;
+    height: auto;
+}
+
+#goodreads-linkbox {
+	background-color: hsl(42, 31.3%, 93.7%);
+	border-color: hsl(42, 31.3%, 63.7%);
+	color: #000;
+}
+
+#email-image {
+	padding-top: 3px;
+    width: 98px;
+    height: auto;
+}
+
+#email-linkbox {
+	background-color: hsl(210.6, 100%, 95%);
+	border-color: hsl(210.6, 40%, 48%);
+	color: #000;
+}
