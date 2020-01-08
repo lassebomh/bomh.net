@@ -24,15 +24,16 @@ span {
 }
 
 #profile-div {
-	margin: 10%;
-	margin-top: 17%;
+	margin: 22%;
+	margin-top: 13%;
 	padding: 10px;
 	padding-bottom: 3px;
-	/*box-shadow: -12px 12px 22px #0004;*/
-	/*border: 1px solid #000A;*/
-	border-radius: 2px;
 	position: absolute;
+	/*border-radius: 2px;*/
+	/*border: 1px solid #000A;*/
+	/*box-shadow: -12px 12px 22px #0004;*/
 	/*background-color: #FFF;*/
+	/*width: 1050px;*/
 }
 
 #profile-image {
@@ -49,6 +50,7 @@ span {
 	letter-spacing: 1px;
 	margin: 0px;
 	padding-bottom: 18px;
+	color: #42444d;
 }
 
 .linkbox {
@@ -62,4 +64,11 @@ span {
 	box-shadow: 5px 5px 16px #0002;
 	border: 1px solid #0003;
 	border-radius: 3px;
+}
+
+#writings {
+	position: absolute;
+	top: 20px;
+	left: 580px;
+	width: 500px;
 }
