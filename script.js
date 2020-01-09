@@ -7,7 +7,7 @@ window.onresize = function(event) {
 
 	// }
 	// else
-	if (window.innerWidth < 1250 || window.innerWidth/window.innerHeight > 1) {
+	if (window.innerWidth < 1250) {
 		pf_div.style.marginLeft = (window.innerWidth/2 - 600/2).toString()+"px";
 		arrow_img.style.visibility = 'hidden';
 	}
