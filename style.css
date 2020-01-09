@@ -8,6 +8,13 @@ span {
 	top: -8px;
 }
 
+body {
+	background-image: url("images/background.png");
+	background-color: #cccccc;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #split-background {
 	position: absolute;
 	top: 0px;
@@ -37,9 +44,9 @@ span {
 }
 
 #profile-image {
-	width: 227px;
+	width: 224.5px;
 	box-shadow: 5px 5px 16px #0002;
-	border: 1px solid #000A;
+	border: 2px solid #fff3;
 	border-radius: 3px;
 }
 
@@ -50,7 +57,8 @@ span {
 	letter-spacing: 1px;
 	margin: 0px;
 	padding-bottom: 18px;
-	color: #42444d;
+	color: #FFF;
+	text-shadow: 5px 5px 16px #0007;
 }
 
 .linkbox {
@@ -60,9 +68,9 @@ span {
 	margin-bottom: 7px;
 	padding: 11px;
 	width: 300px;
-	height: 28px;
-	box-shadow: 5px 5px 16px #0002;
-	border: 1px solid #0003;
+	height: 25.5px;
+	box-shadow: 5px 5px 16px #0007;
+	border: 2px solid #0003;
 	border-radius: 3px;
 }
 
