@@ -1,0 +1,47 @@
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #24292e;
+}
+
+.blink-section img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.skills {
+    margin-top: 60px;
+}
+
+.skill > li {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #0002;
+    border-radius: 4px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 50px auto;
+}
+
+.skill > li > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+.skill > li > img {
+    height: 60%;
+    margin: auto;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.github-ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
