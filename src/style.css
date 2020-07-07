@@ -1,12 +1,39 @@
 
+
+h1,h2,h3,h4,h5 {
+    font-weight: 400;
+    padding-bottom: 15px;
+}
+
+p, .blink-image {
+    padding-bottom: 15px;
+}
+
+p {
+    font-weight: 300;
+    font-size: 18px;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     color: #24292e;
 }
 
-.blink-section img {
+.blink-image {
     width: 100%;
-    border-radius: 100%;
+    max-width: 32vmin;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blink-title {
+    text-align: center;
+}
+
+.blink-text {
+    font-size: 23px;
+    font-weight: 300;
 }
 
 .skills {
@@ -25,13 +52,17 @@ body {
 
 .skill > li > * {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 18px;
+    font-weight: 300;
 }
 
+.skill > li > span {
+    margin-left: 10px;
+}
 
-.skill > li > img {
+.skill-icon {
     height: 60%;
     margin: auto;
 }
@@ -44,4 +75,20 @@ body {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.skills > h3 {
+    margin: 0px 0px 0px 0px;
+}
+
+.strike {
+    width: 100%;
+    border-bottom: 1px solid #0002;
+    margin: 5px 0px 20px 0px;
+}
+
+.heart {
+    position: relative;
+    top: 0px;
+    left: 0px;
 }
