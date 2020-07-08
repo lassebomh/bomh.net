@@ -38,6 +38,7 @@ p, .blink-image {
 p {
     font-weight: 300;
     font-size: 18px;
+    line-height: 1.4em;
 }
 
 body {
@@ -60,7 +61,34 @@ body {
 .blink-text {
     font-size: 23px;
     font-weight: 300;
+    width: 90%;
+    margin: auto;
 }
+
+.contact-box {
+    padding-bottom: 10px;
+}
+
+.contact-box li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.contact-box li a {
+    padding-left: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-box li svg {
+    padding-top: 5px;
+    filter: invert(40%) saturate(0%);
+}
+
 
 .main {
     margin-top: 60px;
@@ -131,32 +159,7 @@ body {
     font-size: 16px;
 }
 
-.contact-box {
-    padding-bottom: 10px;
-}
-
-.contact-box li {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.contact-box li a {
-    padding-left: 10px;
-    color: inherit;
-    text-decoration: none;
-}
-
-.contact-box li svg {
-    padding-top: 5px;
-    filter: invert(40%) saturate(0%);
-}
-
-
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     
     body {
         grid-template-columns: 1fr;
@@ -199,6 +202,11 @@ body {
 
     .blink-image {
         max-width: 50vw;
+    }
+
+    .contact-box {
+        padding-left: 40px;
+        padding-bottom: 20px;
     }
 
 }
