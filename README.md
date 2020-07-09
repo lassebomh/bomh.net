@@ -1,1 +1,1 @@
-# [Go to website](https://bomh.net)
+# [Go to the website](https://bomh.net)
