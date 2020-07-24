@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* background-color: #ff000010; */
+    /* background-color: #ff000030; */
 }
 
 body {
@@ -61,7 +61,7 @@ body {
 .blink-text {
     font-size: 23px;
     font-weight: 300;
-    width: 90%;
+    width: 96%;
     margin: auto;
 }
 
