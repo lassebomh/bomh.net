@@ -1,6 +1,7 @@
 ---
 import 'water.css/out/dark.min.css';
 import '@fontsource-variable/inter';
+import '/public/fonts/css/cabinet-grotesk.css'
 
 interface Props {
 	title: string;
@@ -25,9 +26,8 @@ const { title, description, lang } = Astro.props;
 	</body>
 </html>
 
-<style is:global>
-	@import url('/public/fonts/css/cabinet-grotesk.css');
 
+<style is:global>
 	:root {
 		--background-body: #101113;
 		--background: #161f27;
