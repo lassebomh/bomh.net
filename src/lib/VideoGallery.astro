@@ -48,7 +48,7 @@ let { videos } = Astro.props;
                             <Icon name="bi:play-fill" size={38} />
                         </div>
                     </div>
-                    <video poster={video.poster}>
+                    <video poster={video.poster} preload="none">
                         <source src={video.src} type="video/mp4" />
                     </video>
                 </div>
