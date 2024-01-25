@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	icons: string[];
+    size?: number
+}
+
+const { icons } = Astro.props;
+
+const size = Astro.props.size || 20
+---
+
+<div>
+    {icons.map(icon => {
+        let e = <Icon name={icon} size={size} />;
+        return e
+    })}
+</div>
+
+<style>
+    div {
+        display: flex;
+        gap: 6px;
+    }
+
+    div svg {
+        fill: white;
+    }
+</style>
+

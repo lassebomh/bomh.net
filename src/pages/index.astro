@@ -1,0 +1,108 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components'
+import IconArray from '../lib/icons/IconArray.astro';
+import LinkIcon from '../lib/icons/LinkIcon.astro';
+import VideoGallery from '../lib/VideoGallery.astro';
+import Profile from '../lib/Profile.astro';
+
+
+let galleryVideos = [
+	{
+		src: '/videos/besvaret.mp4',
+		title: "GPT-genererede artikler",
+		poster: '/thumbnails/besvaret.png',
+		icons: ["skill-icons:django","skill-icons:python-dark", "skill-icons:postgresql-dark","logos:openai-icon"],
+	},
+	{
+		src: "/videos/extension.mp4",
+		title: "GPT VSCode extension",
+		poster: '/thumbnails/vscode.png',
+		icons: ["skill-icons:typescript", "logos:openai-icon"],
+		href: 'https://github.com/lassebomh/vscode-markdown-chat'
+	},
+	{
+		src: "/videos/3d_2.mp4",
+		title: "Tyngdekraft simulering",
+		poster: '/thumbnails/gravity.png',
+		icons: ["skill-icons:python-dark",],
+		href: "https://github.com/lassebomh/pyxel-gravity-simulator"
+	},
+	{
+		src: "/videos/gmod.mp4",
+		title: "Kontrol teori projekt",
+		poster: '/thumbnails/controltheory.png',
+		icons: ["devicon:lua",],
+	},
+	{
+		src: "/videos/htmx.mp4",
+		title: "Kode editor i browseren",
+		poster: "/thumbnails/htmx.png",
+		icons: ["skill-icons:svelte",],
+		href: "https://github.com/lassebomh/htmx-playground"
+	},
+	{
+		src: "/videos/morerichresults.mp4",
+		title: "Stack Overflow extension",
+		poster: "/thumbnails/overflowextension.png",
+		icons: ["skill-icons:svelte","skill-icons:typescript"],
+		href: "https://github.com/lassebomh/more-rich-results"
+	},
+	{
+		src: "/videos/celery.mp4",
+		title: "Django + Celery",
+		poster: "/thumbnails/celery.png",
+		icons: ["skill-icons:python-dark", "skill-icons:django", "skill-icons:postgresql-dark", "skill-icons:redis-dark",],
+		href: "https://github.com/lassebomh/django-starter/"
+	},
+]
+
+---
+
+<Layout title="Lasse H. Bomholt - Forside" lang='da' description="Lasse H. Bomholt's hjemmeside">
+	<Profile />
+	<main>
+		<h2>Om mig</h2>
+		<p>
+			Jeg kommer fra København og læser IT-Arkitektur på Erhvervsakademi Aarhus. 
+		</p>
+		<p>
+			Jeg har altid arbejdet på projekter, og mine kompetencer har været ekstremt påvirket af min naturlige interesse for at bygge ting. Jeg var drengen der ønskede sig Lego, ekslusivt for at anskaffe fede klodser der kunne bruges til et projekt, og denne tilgang har ledt mig til at få en meget bred vifte af interesser og kompetencer, særligt indenfor IT og programmering.
+		</p>
+
+		<h2>Erfaring</h2>
+
+		<h3>Fundbase (praktik i egen virksomhed)</h3>
+		<p>
+			På 5. semester valgte jeg at tage praktik i egen virksomhed, med min kammerat Laurits. Vores mål var at lave en applikation der kunne automatisere den daglige drift hos investeringsfonde. Vores løsning blev udarbejdet til <a href="https://newdealinvest.dk/">NewDeal Invest <LinkIcon /></a>, som i dag bruger den til automatisk bogføring, administrativ arbejde, og som portal til deres investorer, så de kan se deres præstationer ved hjælp af visualiseringer. Under praktikken var jeg teknisk ansvarlig, og arbejdede med alt fra back- til frontend.
+		</p>
+		<p>
+			Vores arbejde er stadig i brug af NewDeal Invest, i dag. Der er svært at beskrive hvor meget jeg udviklede mig under praktikken, da ansvarsområdet og projektet var så omfattende, men her er det kogt ned i punktform:
+		</p>
+		<ul>
+			<li>Lærte at kommunikere med potentielle kunder og opfylde deres behov.</li>
+			<li>Hvordan man bygger en IT-Arkitektur der understøtter eksterne krav.</li>
+			<li>Navigere og vedligeholde en applikation under drift.</li>
+			<li>Kommunikere med kunder</li>
+			<li>Planlægge udviklingsprocessen og samarbejde effektivt med kollegaer.</li>
+		</ul>
+		<h3>Kala ApS</h3>
+		<p>
+			Kala ApS laver projektstyring og tidsregistreringssoftware. Her lærte jeg meget om hvordan man arbejder i et team, og hvordan man forstår, navigerer og udvidder eksisterende kodebaser effektivt. Jeg startede i januar 2020, men fratrådte i juni, da coronakrisen ramte virksomheden hårdt.
+		</p>
+
+		<h2>Udvalgte fritidsprojekter</h2>
+
+		<VideoGallery videos={galleryVideos} />
+
+	</main>
+</Layout>
+
+<style>
+    @media only screen and (min-width: 700px) {
+		h2 {
+			margin-top: 1.5em;
+		}
+	}
+</style>
