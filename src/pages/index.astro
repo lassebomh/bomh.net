@@ -10,12 +10,6 @@ import Profile from '../lib/Profile.astro';
 
 let galleryVideos = [
 	{
-		src: '/videos/besvaret.mp4',
-		title: "GPT-genererede artikler",
-		poster: '/thumbnails/besvaret.png',
-		icons: ["skill-icons:django","skill-icons:python-dark", "skill-icons:postgresql-dark","logos:openai-icon"],
-	},
-	{
 		src: "/videos/extension.mp4",
 		title: "GPT VSCode extension",
 		poster: '/thumbnails/vscode.png',
@@ -23,21 +17,8 @@ let galleryVideos = [
 		href: 'https://github.com/lassebomh/vscode-markdown-chat'
 	},
 	{
-		src: "/videos/3d_2.mp4",
-		title: "Tyngdekraft simulering",
-		poster: '/thumbnails/gravity.png',
-		icons: ["skill-icons:python-dark",],
-		href: "https://github.com/lassebomh/pyxel-gravity-simulator"
-	},
-	{
-		src: "/videos/gmod.mp4",
-		title: "Kontrol teori projekt",
-		poster: '/thumbnails/controltheory.png',
-		icons: ["devicon:lua",],
-	},
-	{
 		src: "/videos/htmx.mp4",
-		title: "Kode editor i browseren",
+		title: "HTMX Playground",
 		poster: "/thumbnails/htmx.png",
 		icons: ["skill-icons:svelte",],
 		href: "https://github.com/lassebomh/htmx-playground"
@@ -50,11 +31,30 @@ let galleryVideos = [
 		href: "https://github.com/lassebomh/more-rich-results"
 	},
 	{
+		src: '/videos/besvaret.mp4',
+		title: "GPT-genererede artikler",
+		poster: '/thumbnails/besvaret.png',
+		icons: ["skill-icons:django","skill-icons:python-dark", "skill-icons:postgresql-dark","logos:openai-icon"],
+	},
+	{
+		src: "/videos/3d_2.mp4",
+		title: "Tyngdekraft simulering",
+		poster: '/thumbnails/gravity.png',
+		icons: ["skill-icons:python-dark",],
+		href: "https://github.com/lassebomh/pyxel-gravity-simulator"
+	},
+	{
 		src: "/videos/celery.mp4",
 		title: "Django + Celery",
 		poster: "/thumbnails/celery.png",
 		icons: ["skill-icons:python-dark", "skill-icons:django", "skill-icons:postgresql-dark", "skill-icons:redis-dark",],
 		href: "https://github.com/lassebomh/django-starter/"
+	},
+	{
+		src: "/videos/gmod.mp4",
+		title: "Kontrol teori projekt",
+		poster: '/thumbnails/controltheory.png',
+		icons: ["devicon:lua",],
 	},
 ]
 
@@ -62,7 +62,7 @@ let galleryVideos = [
 
 <Layout title="Lasse H. Bomholt - Forside" lang='da' description="Lasse H. Bomholt's hjemmeside">
 	<Profile />
-	<main>
+	<main style="">
 		<h2>Om mig</h2>
 		<p>
 			Jeg kommer fra København og læser IT-Arkitektur på Erhvervsakademi Aarhus. 
@@ -73,6 +73,14 @@ let galleryVideos = [
 
 		<h2>Erfaring</h2>
 		
+		<h3>Bachelor hos Mindmill Denmark ApS</h3>
+		<p>
+			Lige for tiden har jeg arbejdet på min bacheloropgave i samarbejde med <a href="https://www.mindmill.dk/cases/">Mindmill Denmark ApS <LinkIcon /></a>; et B2B konsulenthus der hjælper virksomheder med at vokse gennem strategisk og operationel marketing.
+		</p>
+		<p>
+			Det centrale problem, som mit bachelorprojekt adresserer hos Mindmill, er at forhindre chatbots i at gentage fejl og dermed bygge videre på dens viden uden at ydeevnen bliver negativt påvirket på andre områder. Mit arbejde har ikke kun løst dette problem, men er også fundamentalt billigere, hurtigere, og mere konsistent sammenlignet med OpenAI's Assistant API. I dag er jeg i gang med at hjælpe dem med at implementere teknikken i deres produktionsmiljø.
+		</p>
+
 		<h3>Fundbase (praktik i egen virksomhed)</h3>
 		<p>
 			I mit 5. semester valgte jeg at tage praktik i min egen virksomhed sammen med min kammerat Laurits. Vores mål var at udvikle en applikation, der kunne automatisere den daglige drift for investeringsfonde. Vores løsning blev skabt til <a href="https://newdealinvest.dk/">NewDeal Invest <LinkIcon /></a>, som i dag anvender den til automatisk bogføring, administrativt arbejde og som en portal for deres investorer til at se deres præstationer gennem visualiseringer. Under praktikopholdet havde jeg den tekniske ledelse og arbejdede med alt lige fra back-end til front-end.
@@ -81,10 +89,8 @@ let galleryVideos = [
 			Vores arbejde benyttes stadig af NewDeal Invest i dag. Det er svært at beskrive, hvor meget jeg udviklede mig under praktikopholdet, da ansvarsområdet og projektet var så omfattende. Her er nogle af mine udviklinger, opsummeret i punktform:
 		</p>
 		<ul>
-			<li>Lærte at kommunikere med potentielle kunder og imødekomme deres behov.</li>
-			<li>Forstod, hvordan man udvikler en IT-arkitektur, der opfylder eksterne krav.</li>
+			<li>Lærte at kommunikere med potentielle kunder og oversætte deres behov til konkrete løsninger.</li>
 			<li>Lærte at navigere og vedligeholde en applikation i drift.</li>
-			<li>Udviklede færdigheder inden for kundekommunikation.</li>
 			<li>Forbedrede evnen til at planlægge udviklingsprocessen, i samarbejde med kollegaer.</li>
 		</ul>
 
@@ -98,7 +104,7 @@ let galleryVideos = [
 			Før jeg begyndte på mit studie, arbejdede jeg hos Kala ApS, som full-stack udvikler. Jeg arbejdede på deres software til projektstyring og tidsregistrering, og lærte meget om teamwork samt teknikker til effektivt at forstå, navigere og udvide eksisterende kodebaser. Jeg startede i januar 2020, men fratrådte i juni, da coronakrisen ramte virksomheden hårdt.
 		</p>
 
-		<h2>Udvalgte fritidsprojekter</h2>
+		<h2 id="projects">Udvalgte fritidsprojekter</h2>
 
 		<VideoGallery videos={galleryVideos} />
 

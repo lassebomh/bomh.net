@@ -19,6 +19,7 @@
             <div class="links hide-mobile">
                 <a href="https://www.linkedin.com/in/lassebomh/">LinkedIn</a>
                 <a href="https://github.com/lassebomh/">Github</a>
+                <a href="#projects">Projekter</a>
             </div>
         </div>
         <div class="profile-container">
@@ -32,6 +33,7 @@
             <div class="links">
                 <a href="https://www.linkedin.com/in/lassebomh/">LinkedIn</a>
                 <a href="https://github.com/lassebomh/">Github</a>
+                <a href="#projects">Projekter</a>
             </div>
         </div>
     </div>
@@ -64,16 +66,14 @@
 
     .links a {
         padding: 0.3em 1em;
-        border: 1px solid white;
-        color: white;
+        border: 1px solid rgb(90, 167, 255);
+        color: rgb(90, 167, 255);
         font-family: "CabinetGrotesk-Variable";
         font-weight: 700;
-        opacity: 0.5;
     }
 
     .links a:hover {
         text-decoration: none;
-        opacity: 1;
     }
 
     .center {
@@ -148,5 +148,35 @@
         inset: 0;
         border: 1px solid white;
         translate: 20px 20px;
+        rotate: 0deg;
+        animation: wiggle 2s cubic-bezier(0.99,0, 0, 1);
+        opacity: 0.4;
+    }
+
+    @keyframes wiggle {
+        0% {
+            translate: 0px 0px;
+            scale: 95%;
+            opacity: 1;
+        }
+
+        60% {
+            translate: 0px 0px;
+            scale: 120%;
+            rotate: 5deg;
+        }
+        70% {
+            translate: 0px 0px;
+            scale: 120%;
+            rotate: 5deg;
+            opacity: 1;
+        }
+
+        100% {
+            translate: 20px 20px;
+            scale: 100%;
+            rotate: 0deg;
+            opacity: 0.4;
+        }
     }
 </style>
