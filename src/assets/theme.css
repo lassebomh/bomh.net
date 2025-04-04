@@ -17,6 +17,13 @@ h3 {
     background-color: #111;
     color: #eee;
   }
+  
+  a {
+    color: rgb(126, 182, 255);
+  }
+  a:visited {
+    color: #b567ff;
+  }
 }
 
 .astro-code {
