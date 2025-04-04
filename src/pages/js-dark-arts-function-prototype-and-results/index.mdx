@@ -1,0 +1,107 @@
+---
+layout: '../../layouts/Layout.astro'
+title: 'JS Dark Arts Volume I: Function prototype & Result types'
+date: '04-04-2025'
+---
+
+# {frontmatter.title}
+
+Let's say we have a function from an external library that looks like this:
+
+```ts
+function defuseBomb(): boolean {
+  if (Math.random() < 0.1) throw new Error();
+  
+  return true;
+}
+```
+
+Since it might throw, we'll have to wrap it in a try-catch block, but a better alternative would be to have the function return a Result instead of throwing:
+
+```ts
+type Result<T> = { value: T; error?: never } | { error: Error };
+```
+
+Due to the nature of results, we would be forced to check for any errors before accessing the value. Sadly though, we're stuck with the try-catch, because the function is from an external library.
+
+```ts
+try {
+  const value = defuseBomb();
+} catch {}
+```
+
+...
+
+But what if we could do this:
+
+```ts
+const result = defuseBomb.try();
+//    ^ Result<boolean>
+```
+
+## Step 1. Drawing the pentagram
+
+We'll add a method to all functions named `try`, which will execute `this` inside a `try...catch` block, converting the return value to a `Result` type. Just in case you skimmed the last sentence: WE WILL ADD A METHOD TO ALL FUNCTIONS.
+
+
+First, we must convince TypeScript this method exists by extending the built-in `Function` interface:
+
+```ts
+declare global {
+  interface Function {
+    try<T extends (...args: any) => any>(
+      this: T,
+      ...args: Parameters<T>
+    ): ReturnType<T> extends Promise<infer R>
+      ? Promise<Result<R>>
+      : Result<ReturnType<T>>;
+  }
+}
+```
+
+Next, we'll write the new method into the function prototype.
+
+```ts
+Function.prototype.try = function <T extends (...args: any) => any>(this: T, ...args: Parameters<T>) {
+  try {
+    const maybe = this(...args);
+    if ((maybe as any) instanceof Promise) {
+      return maybe
+        .then((value: ReturnType<T>) => ({ value }))
+        .catch((error: Error) => ({ error }));
+    } else {
+      return { value: maybe };
+    }
+  } catch (error) {
+    return { error: error };
+  }
+};
+```
+
+## Step 2. Summoning the demons
+
+Using this on the original function, gives us this:
+
+```ts
+
+const result = defuseBomb.try(); // This is completely safe
+//    ^ Result<boolean>
+
+const value = defuseBomb();      // This might throw an error
+//    ^ boolean
+```
+
+And yes, this works on anything:
+
+```ts
+const res = await fetch.try("https://google.com")
+//    ^ Result<Response>
+
+const data = JSON.parse.try(`{"foo": "bar"}`)
+//    ^ Result<any>
+
+```
+
+This should absolutely not be used and will mess with generics inferred from parameters, but still, its pretty neat.
+
+Thanks for reading.

@@ -1,9 +1,25 @@
-import { defineConfig } from 'astro/config';
-import icon from "astro-icon";
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 
 import svelte from "@astrojs/svelte";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [icon(), svelte()]
+  integrations: [mdx(), svelte()],
+  build: {
+    inlineStylesheets: "always",
+    assetsPrefix: "_lasse",
+  },
+  vite: {
+    server: {
+      watch: {
+        ignored: ["**/.direnv/**"],
+      },
+    },
+  },
+  markdown: {
+    shikiConfig: {
+      theme: "dark-plus",
+    },
+  },
+  devToolbar: { enabled: false },
 });
