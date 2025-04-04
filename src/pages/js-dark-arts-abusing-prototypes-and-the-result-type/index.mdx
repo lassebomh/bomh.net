@@ -10,7 +10,9 @@ Let's say we have a function from an external library that looks like this:
 
 ```ts
 function defuseBomb(): boolean {
-  if (Math.random() < 0.1) throw new Error();
+  if (Math.random() < 0.1) {
+    throw new Error();
+  }
   
   return true;
 }
@@ -19,7 +21,9 @@ function defuseBomb(): boolean {
 Since it might throw, we'll have to wrap it in a try-catch block, but a better alternative would be to have the function return a Result instead of throwing:
 
 ```ts
-type Result<T> = { value: T; error?: never } | { error: Error };
+type Result<T> = 
+  | { value: T; error?: never }
+  | { error: Error };
 ```
 
 Due to the nature of results, we would be forced to check for any errors before accessing the value. Sadly though, we're stuck with the try-catch, because the function is from an external library.
