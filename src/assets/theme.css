@@ -5,6 +5,8 @@ body {
   font-size: 16px;
   color: #222;
   padding: 0 10px;
+  
+  background: url("/background.png");
 }
 h1,
 h2,
@@ -12,17 +14,15 @@ h3 {
   line-height: 1.2;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111;
-    color: #eee;
-  }
+body.dark {
+  background: #111;
   
+  color: #eee;
   a {
-    color: rgb(126, 182, 255);
+    color: #8bf;
   }
   a:visited {
-    color: #b567ff;
+    color: #b7f;
   }
 }
 

@@ -3,8 +3,22 @@ import Layout from "../layouts/Layout.astro";
 const posts = Object.values(import.meta.glob("./**/index.mdx", { eager: true })) as any[];
 ---
 
-<Layout frontmatter={{ title: "Foo" }}>
-  <p>Post Archive:</p>
+<Layout frontmatter={{ title: "Lasse H. Bomholt" }}>
+  <h1>Lasse H. Bomholt</h1>
+  <img src="/profile.png" alt="Lasse H. Bomholt" width="200" height="200" style="float: right;" />
+  <ul>
+    <li>Software Engineer at <a href="https://ipaper.io">iPaper</a>.</li>
+    <li>Based in Aarhus.</li>
+  </ul>
+  <p>Contact me at lasse@bomh.net</p>
+
+  <h2>Public Projects</h2>
+  <ul>
+    <li><a href="https://lassebomh.github.io/box-breathing/">Box Breathing Guide</a></li>
+    <li><a href="https://lassebomh.github.io/tierlist/">Tier List Creator</a></li>
+    <li><a href="https://lassebomh.github.io/htmx-playground/">HTMX Playground</a></li>
+  </ul>
+  <h2>Posts</h2>
   <ul>
     {
       posts.map((post) => (

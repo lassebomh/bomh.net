@@ -22,7 +22,36 @@ const { frontmatter } = Astro.props;
   </head>
 
   <body>
-    <a href="/"><img src="home.gif" width="40" height="40" alt="Home" /></a>
+    <a href="/"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
+    <img
+      id="theme-img"
+      role="button"
+      aria-label="Toggle dark mode"
+      width="40"
+      height="40"
+      alt="Toggle dark mode"
+      style="cursor: pointer;"
+    />
+    <script>
+      import { store } from "../lib/store";
+
+      const darkmode = store<boolean>("darkmode", window.matchMedia("(prefers-color-scheme: dark)").matches);
+      const themeImg = document.getElementById("theme-img") as HTMLImageElement;
+
+      themeImg.addEventListener("click", () => {
+        darkmode.update((enabled) => !enabled);
+      });
+
+      darkmode.subscribe((darkmode) => {
+        if (darkmode) {
+          themeImg.src = "/sun.png";
+          document.body.classList.add("dark");
+        } else {
+          themeImg.src = "/moon.png";
+          document.body.classList.remove("dark");
+        }
+      });
+    </script>
     <main>
       <slot />
     </main>

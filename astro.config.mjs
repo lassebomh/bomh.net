@@ -9,6 +9,7 @@ export default defineConfig({
     inlineStylesheets: "always",
     assetsPrefix: "_lasse",
   },
+  site: "https://bomh.net",
   vite: {
     server: {
       watch: {
