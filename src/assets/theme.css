@@ -15,7 +15,7 @@ h3 {
 }
 
 body.dark {
-  background: #111;
+  background: url("/background-dark.png");
   
   color: #eee;
   a {

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const posts = Object.values(import.meta.glob("./**/index.mdx", { eager: true })) as any[];
+const posts = Object.values(import.meta.glob("./posts/**/index.mdx", { eager: true })) as any[];
 ---
 
 <Layout frontmatter={{ title: "Lasse H. Bomholt" }}>
