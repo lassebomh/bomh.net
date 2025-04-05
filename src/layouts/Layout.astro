@@ -30,7 +30,7 @@ const { frontmatter } = Astro.props;
         ],
         "prefetch": [
           {
-            "where": { "not": { "href_matches": "/*" } },
+            "where": { "href_matches": "/*" },
             "eagerness": "moderate"
           }
         ]
