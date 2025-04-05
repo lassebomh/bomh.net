@@ -24,12 +24,16 @@ const { frontmatter } = Astro.props;
       {
         "prerender": [
           {
-            "where": {
-              "and": [{ "href_matches": "/*" }]
-            }
+            "where": { "href_matches": "/*" },
+            "eagerness": "moderate"
           }
         ],
-        "eagerness": "moderate"
+        "prefetch": [
+          {
+            "where": { "not": { "href_matches": "/*" } },
+            "eagerness": "moderate"
+          }
+        ]
       }
     </script>
   </head>
