@@ -87,7 +87,6 @@ Function.prototype.try = function <T extends (...args: any) => any>(this: T, ...
 Using this on the original function, gives us this:
 
 ```ts
-
 const result = defuseBomb.try(); // This is completely safe
 //    ^ Result<boolean>
 

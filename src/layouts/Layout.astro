@@ -38,36 +38,79 @@ const { frontmatter } = Astro.props;
     </script>
   </head>
 
-  <body>
-    <a href="/"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
-    <img
-      id="theme-img"
-      role="button"
-      aria-label="Toggle dark mode"
-      width="40"
-      height="40"
-      alt="Toggle dark mode"
-      style="cursor: pointer;"
-    />
+  <body data-theme="light">
+    <canvas id="bg"></canvas>
+    <div style="display: flex; gap: 8px;">
+      <a href="/"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
+      <img
+        id="theme-img"
+        role="button"
+        aria-label="Toggle dark mode"
+        width="40"
+        height="40"
+        alt="Toggle dark mode"
+        style="cursor: pointer;"
+      />
+    </div>
     <script>
-      import { store } from "../lib/store";
+      import { store } from "../lib/utils";
 
-      const darkmode = store<boolean>("darkmode", window.matchMedia("(prefers-color-scheme: dark)").matches);
+      const theme = store<"dark" | "light" | "future">(
+        "theme",
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+      );
       const themeImg = document.getElementById("theme-img") as HTMLImageElement;
 
       themeImg.addEventListener("click", () => {
-        darkmode.update((enabled) => !enabled);
+        theme.update((theme) => {
+          switch (theme) {
+            case "dark":
+              return "light";
+            case "light":
+              return "future";
+            case "future":
+              return "dark";
+          }
+        });
       });
 
-      darkmode.subscribe((darkmode) => {
-        if (darkmode) {
-          themeImg.src = "/sun.png";
-          document.body.classList.add("dark");
-        } else {
-          themeImg.src = "/moon.png";
-          document.body.classList.remove("dark");
+      let stopCanvas: (() => void) | undefined;
+
+      theme.subscribe(async (theme) => {
+        document.body.dataset.theme = theme;
+
+        stopCanvas?.();
+
+        switch (theme) {
+          case "light":
+            themeImg.src = "/sun.png";
+            break;
+
+          case "dark":
+            themeImg.src = "/moon.png";
+            break;
+
+          case "future":
+            themeImg.src = "/future.png";
+            const { start } = await import("../lib/future/shader");
+            const canvas = document.getElementById("bg") as HTMLCanvasElement;
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            const ratio = width / height;
+            width = Math.max(width, 800);
+            height = width / ratio;
+
+            canvas.width = width;
+            canvas.height = height;
+
+            stopCanvas = start();
+            break;
         }
       });
+
+      setTimeout(() => {
+        document.body.dataset.transition = "true";
+      }, 1000);
     </script>
     <main>
       <slot />

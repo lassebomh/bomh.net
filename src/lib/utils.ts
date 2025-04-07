@@ -43,3 +43,7 @@ export function store<T extends JSONValue>(key: string, fallback: T) {
     subscribe,
   };
 }
+
+export function never(): never {
+  throw new Error("Unreachable code reached");
+}

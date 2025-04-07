@@ -1,11 +1,29 @@
+@font-face {
+  font-display: swap;
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/dm-mono-v14-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Swiss 721 BT";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/swiss-721-bt-bold-extended.woff2") format("woff2");
+}
+
 body {
-  margin: 40px auto;
-  max-width: 700px;
+  min-height: 100vh;
   line-height: 1.6;
   font-size: 16px;
+  padding: 8px;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+
   color: #222;
-  padding: 0 10px;
-  
   background: url("/background.png");
 }
 h1,
@@ -14,9 +32,51 @@ h3 {
   line-height: 1.2;
 }
 
-body.dark {
-  background: url("/background-dark.png");
-  
+body[data-transition="true"],
+body[data-transition="true"] * {
+  transition-property: background-color, text-shadow, color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 16px 32px;
+}
+
+.astro-code {
+  padding: 12px;
+  font-size: 14px;
+}
+
+#bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: none;
+
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body[data-theme="dark"] {
+  background: url("/background-dark.png") #000;
+
   color: #eee;
   a {
     color: #8bf;
@@ -26,7 +86,92 @@ body.dark {
   }
 }
 
-.astro-code {
-  padding: 8px;
-  font-size: 14px;
+:root:has(body[data-theme="future"]) {
+  scrollbar-color: #555 transparent;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body[data-theme="future"] {
+  font-family: "DM Mono";
+  letter-spacing: -0.07em;
+  word-spacing: -0.1em;
+  color: #fff;
+  background: #000;
+
+  main {
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+  }
+
+  * {
+    scrollbar-color: #555 transparent;
+    scrollbar-width: thin;
+  }
+
+  a {
+    color: #8bf;
+  }
+  a:visited {
+    color: #b7f;
+  }
+
+  #bg {
+    display: block;
+  }
+
+  code {
+    letter-spacing: 0;
+    word-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Swiss 721 BT";
+    text-shadow: 0 0 0.4em #0006, 0 0 0.1em #000f;
+  }
+
+  .astro-code {
+    background: #0004 !important;
+    border-radius: 4px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 29999;
+    pointer-events: none;
+    image-rendering: pixelated;
+    opacity: 0.12;
+    /* mix-blend-mode: hard-light; */
+    /* opacity: 0.08; */
+    animation: shift 0.11666666666s steps(7, jump-both) infinite;
+    background-image: url("/texture2.gif");
+  }
+}
+
+@keyframes shift {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 2000px 0;
+  }
+  50% {
+    background-position: 2000px 2000px;
+  }
+  75% {
+    background-position: 0 2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    padding: 1px 4px;
+  }
 }
