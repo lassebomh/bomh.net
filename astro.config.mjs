@@ -8,7 +8,6 @@ export default defineConfig({
   integrations: [sitemap(), mdx(), svelte()],
   build: {
     inlineStylesheets: "always",
-    assetsPrefix: "_lasse",
   },
   site: "https://bomh.net",
   vite: {
