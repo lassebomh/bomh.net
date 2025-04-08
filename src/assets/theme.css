@@ -22,6 +22,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   position: relative;
+  font-family: serif;
 
   color: #222;
   background: url("/background.png");

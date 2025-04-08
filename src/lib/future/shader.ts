@@ -123,17 +123,17 @@ vec4 aurora(vec3 ro, vec3 rd)
     vec4 col = vec4(0);
     vec4 avgCol = vec4(0);
     
-    for(float i=0.;i<100.; i++)
+    for(float i=0.;i<25.; i++)
     {
-        float of = 0.006*hash21(gl_FragCoord.xy)*smoothstep(0.,30., i);
-        float pt = ((.8+pow(i,1.4)*.002)-ro.y)/(rd.y*2.+0.4);
-        pt -= of;
-    	vec3 bpos = ro + pt*rd;
+        
+        float pt = ((0.7+pow(i,1.4)*.001)-ro.y)/(rd.y*1.5+0.3);
+        
+    	  vec3 bpos = ro + pt*rd;
         vec2 p = bpos.zx;
-        float rzt = triNoise2d(p, 0.2);
+        float rzt = triNoise2d(p, 0.1);
         vec4 col2 = vec4(0,0,0, rzt);
-        col2.rgb = (sin(1.-vec3(2.15,-.5, 1.0)+i*0.08)*0.5+0.4)*rzt;
-        avgCol =  mix(avgCol, col2, .5);
+        col2.rgb = (sin(1.1-vec3(2.15,-.5, 1.5)+i*0.1)*0.6+0.4)*rzt;
+        avgCol =  mix(avgCol, col2, 0.9);
         col += avgCol*exp2(-i*0.065 - 2.5)*smoothstep(0.,5., i);
         
     }
@@ -160,24 +160,6 @@ vec3 nmzHash33(vec3 q)
     p = p*uvec3(374761393U, 1103515245U, 668265263U) + p.zxy + p.yzx;
     p = p.yzx*(p.zxy^(p >> 3U));
     return vec3(p^(p >> 16U))*(1.0/vec3(0xffffffffU));
-}
-
-vec3 stars(in vec3 p)
-{
-    vec3 c = vec3(0.);
-    float res = iResolution.x*1.;
-    
-	for (float i=0.;i<4.;i++)
-    {
-        vec3 q = fract(p*(.15*res))-0.5;
-        vec3 id = floor(p*(.15*res));
-        vec2 rn = nmzHash33(id).xy;
-        float c2 = 1.-smoothstep(0.,.6,length(q));
-        c2 *= step(rn.x,.0005+i*i*0.001);
-        c += c2*(mix(vec3(1.0,0.49,0.1),vec3(0.75,0.9,1.),rn.y)*0.1+0.9);
-        p *= 1.3;
-    }
-    return c*c*.8;
 }
 
 vec3 bg(in vec3 rd)
@@ -212,7 +194,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     if (rd.y > 0.){
         vec4 aur = smoothstep(0.,1.5,aurora(ro,rd))*fade;
-        col += stars(rd);
         col = col*(1.-aur.a) + aur.rgb;
     }
     else //Reflections
@@ -220,7 +201,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         rd.y = abs(rd.y);
         col = bg(rd)*fade*0.4;
         vec4 aur = smoothstep(0.0,2.4,aurora(ro,rd));
-        col += stars(rd)*0.3;
         col = col*(1.-aur.a) + aur.rgb;
         vec3 pos = ro + ((0.5-ro.y)/rd.y)*rd;
         float nz2 = triNoise2d(pos.xz*vec2(.5,.7), 0.);
