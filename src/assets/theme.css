@@ -144,7 +144,7 @@ body[data-theme="future"] {
     z-index: 29999;
     pointer-events: none;
     image-rendering: pixelated;
-    opacity: 0.12;
+    opacity: 0.08;
     /* mix-blend-mode: hard-light; */
     /* opacity: 0.08; */
     animation: shift 0.11666666666s steps(7, jump-both) infinite;
