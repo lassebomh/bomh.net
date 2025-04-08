@@ -4,34 +4,6 @@ const posts = Object.values(import.meta.glob("./posts/**/index.mdx", { eager: tr
 ---
 
 <Layout frontmatter={{ title: "Lasse H. Bomholt" }}>
-  <style>
-    #profile {
-      clip-path: rect(0 100% var(--progress) 0);
-    }
-    body[data-theme="future"] {
-      #profile {
-        --progress: 100% !important;
-      }
-    }
-  </style>
-  <script>
-    const img = document.getElementById("profile")!;
-    let progress = 0;
-
-    let last = performance.now();
-    function loop() {
-      const now = performance.now();
-      progress += (Math.pow(now - last, 1.5) / (10000 / (20 + progress))) * Math.random();
-      img.style.setProperty("--progress", progress + "%");
-
-      last = now;
-
-      if (progress < 100) {
-        setTimeout(loop, Math.random() * 300);
-      }
-    }
-    loop();
-  </script>
   <h1>Lasse H. Bomholt</h1>
   <img id="profile" src="/profile.webp" alt="Lasse H. Bomholt" width="150" height="150" style="float: right;" />
   <ul>
