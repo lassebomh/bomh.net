@@ -4,6 +4,13 @@ const posts = Object.values(import.meta.glob("./posts/**/index.mdx", { eager: tr
 ---
 
 <Layout frontmatter={{ title: "Lasse H. Bomholt" }}>
+  <style>
+    iframe {
+      width: 100%;
+      border: none;
+    }
+  </style>
+  <iframe allowtransparency="true" height="130" src="https://lassebomh.github.io/vanilla-js-3d/"></iframe>
   <h1>Lasse H. Bomholt</h1>
   <img id="profile" src="/profile.webp" alt="Lasse H. Bomholt" width="150" height="150" style="float: right;" />
   <ul>
