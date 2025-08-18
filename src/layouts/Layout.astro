@@ -5,22 +5,22 @@ import "../assets/theme.css";
 type Props =
   | MarkdownLayoutProps<{
       title: string;
-      // author: string;
-      // date: string;
+      description: string;
     }>
-  | { frontmatter: { title: string } };
+  | { frontmatter: { title: string, description: string } };
 
 const { frontmatter } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-darkmode="false">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="description" content={frontmatter.description}>
     <title>{frontmatter.title}</title>
-    <script type="speculationrules" id="specrules">
+    <script type="speculationrules" id="specrules" is:inline>
       {
         "prerender": [
           {
@@ -38,74 +38,38 @@ const { frontmatter } = Astro.props;
     </script>
   </head>
 
-  <body data-theme="light">
-    <canvas id="bg"></canvas>
-    <div style="display: flex; gap: 8px;">
-      <a href="/"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
+  <body>
+    <nav>
+      <a tabindex="0" href="/" style="line-height: 0;"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
       <img
         id="theme-img"
+        tabindex="0"
         role="button"
-        aria-label="Toggle dark mode"
         width="40"
         height="40"
+        aria-label="Toggle dark mode"
         alt="Toggle dark mode"
-        style="cursor: pointer;"
       />
-    </div>
+    </nav>
     <script>
       import { store } from "../lib/utils";
 
-      const theme = store<"dark" | "light" | "future">(
-        "theme",
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+      const darkmode = store(
+        "darkmode",
+        () => window.matchMedia("(prefers-color-scheme: dark)").matches
       );
       const themeImg = document.getElementById("theme-img") as HTMLImageElement;
 
       themeImg.addEventListener("click", () => {
-        theme.update((theme) => {
-          switch (theme) {
-            case "dark":
-              return "light";
-            case "light":
-              return "future";
-            case "future":
-              return "dark";
-          }
-        });
+        darkmode.update((darkmode) => !darkmode);
       });
 
-      let stopCanvas: (() => void) | undefined;
-
-      theme.subscribe(async (theme) => {
-        document.body.dataset.theme = theme;
-
-        stopCanvas?.();
-
-        switch (theme) {
-          case "light":
-            themeImg.src = "/sun.png";
-            break;
-
-          case "dark":
-            themeImg.src = "/moon.png";
-            break;
-
-          case "future":
-            themeImg.src = "/future.png";
-            const { start } = await import("../lib/future/shader");
-            const canvas = document.getElementById("bg") as HTMLCanvasElement;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            stopCanvas = start();
-            break;
-        }
+      darkmode.subscribe((darkmode) => {
+        document.documentElement.dataset.darkmode = String(darkmode);
+        themeImg.src = darkmode ? "/moon.png" : '/sun.png'
       });
-
-      setTimeout(() => {
-        document.body.dataset.transition = "true";
-      }, 1000);
     </script>
+    <slot name="after-nav" />
     <main>
       <slot />
     </main>

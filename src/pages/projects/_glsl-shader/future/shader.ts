@@ -1,4 +1,4 @@
-import { never } from "../utils";
+import { never } from "../../../../lib/utils";
 
 function compileShader(gl: WebGLRenderingContext, shaderSource: string, shaderType: number) {
   let shader = gl.createShader(shaderType) ?? never();

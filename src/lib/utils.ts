@@ -1,6 +1,6 @@
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
 
-export function store<T extends JSONValue>(key: string, fallback: T) {
+export function store<T extends JSONValue>(key: string, fallback: () => T) {
   const subscribers = new Set<(value: T) => void>();
 
   let current: T;
@@ -15,15 +15,15 @@ export function store<T extends JSONValue>(key: string, fallback: T) {
 
   {
     const raw = localStorage.getItem(key);
-    set(raw !== null ? JSON.parse(raw) : fallback);
+    set(raw !== null ? JSON.parse(raw) : fallback());
   }
 
-  function subscribe(fn: (value: T) => void) {
-    subscribers.add(fn);
-    fn(current);
+  function subscribe(callback: (value: T) => void) {
+    subscribers.add(callback);
+    callback(current);
 
     return () => {
-      subscribers.delete(fn);
+      subscribers.delete(callback);
     };
   }
 
@@ -32,7 +32,7 @@ export function store<T extends JSONValue>(key: string, fallback: T) {
   }
 
   window.addEventListener("storage", (e) => {
-    if (e.newValue !== null) {
+    if (e.key === key && e.newValue !== null) {
       set(JSON.parse(e.newValue));
     }
   });
