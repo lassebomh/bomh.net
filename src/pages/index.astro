@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const posts = Object.values(import.meta.glob("./posts/**/index.mdx", { eager: true })) as any[];
+const posts = Object.values(import.meta.glob("./posts/**/index.{md,mdx}", { eager: true })) as any[];
 ---
 
 <Layout frontmatter={{ title: "Lasse H. Bomholt", description: "Lasse H. Bomholt, a software engineer based in Aarhus" }}>
   <iframe slot="after-nav" style="width: 100%; border: none;" title="Welcome to bomh.net" allowtransparency="true" height="200" src="https://lassebomh.github.io/vanilla-js-3d/"></iframe>
-  <div style="float: right; font-family: monospace; font-size: 12px;">
+  <div style="font-family: monospace; font-size: 12px;">
     You can type in the title!
   </div>
   <h1>Lasse H. Bomholt</h1>

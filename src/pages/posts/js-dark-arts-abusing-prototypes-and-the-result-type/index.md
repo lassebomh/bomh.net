@@ -4,7 +4,7 @@ title: "JS Dark Arts: Abusing prototypes and the Result type"
 date: "04-04-2025"
 ---
 
-# {frontmatter.title}
+# JS Dark Arts: Abusing prototypes and the Result type
 
 Let's say we have a function from an external library that looks like this:
 
