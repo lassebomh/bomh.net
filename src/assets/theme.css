@@ -6,15 +6,16 @@ body {
   margin: 0;
   box-sizing: border-box;
   position: relative;
-  font-family: serif;
-
-  color: #222;
-  background: url("/background.png");
+  background: #080808;
+  color: #eee;
+  scrollbar-color: #fff6 transparent;
 }
+
 h1,
 h2,
 h3 {
   line-height: 1.2;
+  font-weight: 700;
 }
 
 :root {
@@ -23,9 +24,14 @@ h3 {
 }
 
 a {
-  text-decoration: none;
   &:hover {
     text-decoration: underline;
+  }
+
+  color: #8bf;
+
+  &:visited {
+    color: #b7f;
   }
 }
 
@@ -44,30 +50,10 @@ summary {
   cursor: pointer;
 }
 
-:root[data-darkmode="true"] {
-  body {
-    background: url("/background-dark.png") #000;
-    color: #eee;
-  }
-
-  a {
-    color: #8bf;
-    &:visited {
-      color: #b7f;
-    }
-  }
-
-  scrollbar-color: #fff6 transparent;
-}
-
 @media (max-width: 800px) {
   main {
     padding: 1px 4px;
   }
-}
-
-#theme-img {
-  cursor: pointer;
 }
 
 nav {

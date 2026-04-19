@@ -42,34 +42,7 @@ const { frontmatter } = Astro.props;
   <body>
     <nav>
       <a tabindex="0" href="/" style="line-height: 0;"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
-      <img
-        id="theme-img"
-        tabindex="0"
-        role="button"
-        width="40"
-        height="40"
-        aria-label="Toggle dark mode"
-        alt="Toggle dark mode"
-      />
     </nav>
-    <script>
-      import { store } from "../lib/utils";
-
-      const darkmode = store(
-        "darkmode",
-        () => window.matchMedia("(prefers-color-scheme: dark)").matches
-      );
-      const themeImg = document.getElementById("theme-img") as HTMLImageElement;
-
-      themeImg.addEventListener("click", () => {
-        darkmode.update((darkmode) => !darkmode);
-      });
-
-      darkmode.subscribe((darkmode) => {
-        document.documentElement.dataset.darkmode = String(darkmode);
-        themeImg.src = darkmode ? "/moon.png" : '/sun.png'
-      });
-    </script>
     <slot name="after-nav" />
     <main>
       <slot />
