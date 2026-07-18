@@ -12,8 +12,8 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.2.1",
-    "@astrojs/svelte": "^7.0.7",
     "@astrojs/sitemap": "3.3.0",
+    "@astrojs/svelte": "^7.0.7",
     "@codemirror/lang-html": "^6.4.9",
     "@codemirror/lang-javascript": "^6.2.3",
     "@codemirror/lang-json": "^6.0.1",
@@ -31,5 +31,10 @@
     "qrcode": "^1.5.4",
     "svelte": "^5.25.3",
     "typescript": "5.8.2"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4",
+    "mdast": "^3.0.0",
+    "unist-util-visit": "^5.1.0"
   }
 }

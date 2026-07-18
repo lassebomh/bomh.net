@@ -7,7 +7,7 @@ type Props =
       title: string;
       description: string;
     }>
-  | { frontmatter: { title: string, description: string } };
+  | { frontmatter: { title: string; description: string } };
 
 const { frontmatter } = Astro.props;
 ---
@@ -18,8 +18,8 @@ const { frontmatter } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="description" content={frontmatter.description}>
-    <link rel="shortcut icon" href="/home.gif" type="image/gif">
+    <meta name="description" content={frontmatter.description} />
+    <link rel="shortcut icon" href="/home.gif" type="image/gif" />
     <title>{frontmatter.title}</title>
     <script type="speculationrules" id="specrules" is:inline>
       {
@@ -37,16 +37,12 @@ const { frontmatter } = Astro.props;
         ]
       }
     </script>
-    <script defer src="https://umami.final.zip/script.js" data-website-id="ef06b30e-cda4-4497-854f-71458ae6a689"></script>
+    <script defer src="https://umami.final.zip/script.js" data-website-id="ef06b30e-cda4-4497-854f-71458ae6a689"
+    ></script>
   </head>
 
   <body>
-    <nav>
-      <a tabindex="0" href="/" style="line-height: 0;"><img src="/home.gif" width="40" height="40" alt="Home" /></a>
-    </nav>
     <slot name="after-nav" />
-    <main>
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>

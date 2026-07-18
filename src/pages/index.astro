@@ -1,95 +1,98 @@
 ---
+import { getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 const posts = Object.values(import.meta.glob("./posts/**/index.{md,mdx}", { eager: true })) as any[];
+
+const snippets = await getCollection("snippets");
+
+const allAssets = import.meta.glob<{ default: ImageMetadata }>("/src/snippets/**/*.{png,jpg,jpeg,gif,webp,svg}", {
+  eager: true,
+});
+
+function getAssetsForSnippet(snippetId: string) {
+  const prefix = `/src/snippets/${snippetId}/`;
+  return Object.entries(allAssets)
+    .filter(([path]) => path.startsWith(prefix))
+    .map(([_, module]) => module.default);
+}
+
+const items = await Promise.all(
+  snippets.map(async (snippet) => {
+    const { Content } = await render(snippet);
+    const assets = getAssetsForSnippet(snippet.id);
+    console.log(assets);
+    return {
+      title: snippet.data.title,
+      date: snippet.data.date,
+      Content,
+      assets: assets,
+    };
+  }),
+);
+
+items.sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
-<Layout frontmatter={{ title: "Lasse H. Bomholt", description: "Lasse H. Bomholt, a software engineer based in Aarhus" }}>
-  
-  <style>
-    
-    body {
-      font-family: "Space Mono", monospace;
-      font-weight: normal;
-      line-height: 1.5em;
-      color: #eee;
-      
-    }
-    
-    h1, h2, h3 {
-      font-weight: 700;
-      font-size: 1rem;
-      color: white;
-    }
-    
-  </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space%20Grotesk:wght@300..700&family=Space+Mono:wght@300..700&display=block">
-  
-    
-  <iframe slot="after-nav" style="width: 100%; border: none;" title="Welcome to bomh.net" allowtransparency="true" height="200" src="https://lassebomh.github.io/vanilla-js-3d/"></iframe>
+<Layout
+  frontmatter={{ title: "Lasse H. Bomholt", description: "Lasse H. Bomholt, a software engineer based in Aarhus" }}
+>
+  <!-- <iframe
+    slot="after-nav"
+    style="width: 100%; border: none;"
+    title="Welcome to bomh.net"
+    allowtransparency="true"
+    height="200"
+    src="https://lassebomh.github.io/vanilla-js-3d/"></iframe> -->
+  <table class="header">
+    <tbody>
+      <tr>
+        <td colspan="2" rowspan="1">
+          <h1 class="title" title="Lasse Holmgaard Bomholt">Lasse H. Bomholt</h1>
+        </td>
+        <td colspan="1" rowspan="2" style="width: 150px; min-width: 150px; padding: 0; position: relative;">
+          <img
+            style="position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%;"
+            src="/profile.png"
+            alt="Lasse H. Bomholt"
+            width="150"
+            height="150"
+          />
+        </td>
+        <tr>
+          <th class="width-min" colspan="2">
+            <ul>
+              <li>
+                Senior Frontend Engineer at <a target="_blank" href="https://ipaper.io">iPaper</a>.
+              </li>
+              <li>Aarhus, Denmark.</li>
+            </ul>
+            <a target="_blank" href="https://github.com/lassebomh">github</a>
+            <a target="_blank" href="https://dk.linkedin.com/in/lassebomh">linkedin</a>
+            <a href="mailto:lasse@bomh.net">e-mail</a>
+          </th>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
 
-  <img id="profile" src="/profile.webp" alt="Lasse H. Bomholt" width="150" height="150" style="float: right; border-radius: 9999rem;" />
-  <h1>
-    Lasse Holmgaard Bomholt
-  </h1>
-  <div>Software Engineer at <a target="_blank" href="https://ipaper.io">iPaper</a>.</div>
-  <div>Aarhus, Denmark.</div>
-  <p>
-    <a target="_blank" href="https://github.com/lassebomh">github</a> <a target="_blank" href="https://dk.linkedin.com/in/lassebomh">linkedin</a> <a href="mailto://lasse@bomh.net">e-mail</a>
-  </p>
-
-  
-  <h2>Selected public projects:</h2>
-  <details>
-    <summary>
-      final.zip
-    </summary>
-    <blockquote>
-      <p><a target="_blank" href="https://final.zip/">(link)</a></p>
-      I cannot count the number of times that I've wanted to quickly transfer a file, and gotten hit with "File type not supported", "You don't have enough space", "The file is too big" or simply just "Cannot upload file". I'd always sit there in a mix of awe and frustration, and wonder how it's so hard to just transfer a goddamn file without paying money or creating an account. I channeled this frustration into a website called final.zip, that allows you to transfer a file P2P: No logins, no file size limits and no paywall. I'm don't store any of the files, which is how I can offer no size limits without drowning in hosting costs ($6). The name is inspired by the never-ending cycle of naming files 'final.zip', 'final_v2.zip', 'final_v2_real.zip'.
-    </blockquote>
-  </details>
-  <details>
-    <summary>
-      Box Breathing Guide
-    </summary>
-    <blockquote>
-      <p><a target="_blank" href="https://lassebomh.github.io/box-breathing/">(link)</a></p>
-      A breathing tool written in plain old HTML+CSS+JS. I discovered the box breathing technique and thought of an interesting way of visualizing it without any JS, so I made the site and posted it publicly. To my surprise, some people started using it, so I improved the site with various settings and a service worker so it can be installed as an offline app.
-    </blockquote>
-  </details>
-  <details>
-    <summary>
-      Tier List Creator
-    </summary>
-    <blockquote>
-      <p><a target="_blank" href="https://lassebomh.github.io/tierlist/">(link)</a></p>
-      I created this out of frustation with existing tier list sites, which don't have proper drag-and-drop and upload of images by pasting. It's written in Svelte and contains some fun <a target="_blank" href="/flood-fill.gif">image processing algorithms for extracting connected components</a>.
-    </blockquote>
-  </details>
-  <details>
-    <summary>
-      HTMX Playground
-    </summary>
-    <blockquote>
-      <p><a target="_blank" href="https://lassebomh.github.io/htmx-playground/">(link)</a></p>
-      <a target="_blank" href="https://htmx.org/">HTMX</a> can be thought of as a small extension to HTML, providing extra attributes that allow AJAX and interactivity without writing JavaScript. It's created by Carson Gross, a teacher of compilers and databases at Montana State University, and I've been a big fan of his essays and his library ever since I discovered it. After getting curious about the lack of any online playgrounds for it, I started making one. I finished the project and put on it on HackerNews where it got some buzz from a lot of people and even the creator himself.
-    </blockquote>
-  </details>
-  <details>
-    <summary>
-      The 3D title on this site
-    </summary>
-    <blockquote>
-      <p><a target="_blank" href="https://github.com/lassebomh/vanilla-js-3d">(source)</a></p>
-      I've always been interested in 3D and while on vacation I decided to challenge myself by writing my own library from scratch. It has no dependencies, no bundling and just writes pixels to a 2D canvas. I think it contains some pretty neat ideas, such as strongly typed matricies and was loads of fun to work on.
-    </blockquote>
-  </details>
-  <h2>Posts</h2>
+  <h2 class="">Posts</h2>
+  <ul>
     {
       posts.map((post) => (
-          <div>
-            <a href={post.url}>{post.frontmatter.title}</a>
-          </div>
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
       ))
     }
+  </ul>
+
+  <h2 class="">Selected public projects:</h2>
+  {
+    items.map((item) => (
+      <details open>
+        <summary> {item.title} </summary>
+        <item.Content />
+      </details>
+    ))
+  }
 </Layout>
