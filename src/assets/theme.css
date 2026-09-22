@@ -153,16 +153,21 @@ table {
   font-style: normal;
   font-variant-numeric: tabular-nums lining-nums;
   font-size: 16px;
+
+  --text-color: #fff;
+  --text-color-alt: #aaa;
+  --background-color: #000;
+  --background-color-alt: #111;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #fff;
     --text-color-alt: #aaa;
     --background-color: #000;
     --background-color-alt: #111;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -607,7 +612,8 @@ label input {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-image: repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
     repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
   background-size: 1ch var(--line-height);
   margin: 0;
